@@ -19,7 +19,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/wfmikasa.github.io/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/wfmikasa.github.io/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -180,11 +180,328 @@
 
           <div class="content index posts-expand">
             
+
+<!--轮播图-->
+
+
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+
+.glyphicon-chevron-left:before{
+    content: "《"
+}
+.glyphicon-chevron-right:before{
+    content: "》"
+}
+
+@media (max-width: 767px){
+    .rights{
+        display: none;
+    }
+    .carousel{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .slide{
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+}
+
+.carousel{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -moz-transition: -moz-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+  }
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.next.left,
+  .carousel-inner > .item.prev.right,
+  .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+.carousel-inner > .active {
+  left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel-inner > .next {
+  left: 100%;
+}
+.carousel-inner > .prev {
+  left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  font-family: serif;
+}
+.carousel-control .icon-prev:before {
+  content: '\2039';
+}
+.carousel-control .icon-next:before {
+  content: '\203a';
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -10px;
+  }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -10px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+</style>
+<div width="100%" height="320px" style="border: 0px; overflow: hidden; border-radius: 10px;" scrolling="no">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" >
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+        
+        
+
+            <li data-target="#myCarousel" data-slide-to="0"></li>
+            
+
+        
+
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            
+
+        
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
+
+        
+         
+
+            
+                <a class="item active" href="https://www.bilibili.com/read/cv9481?from=search" target="_blank" style="height: 100%;">
+                    <img src="https://i0.hdslb.com/bfs/article/e8ce21f6736c0eb4ae600691868b8baf88a0dd68.png@.webp"   style="width: 100%; height: 100%" >
+                </a>
+                
+                
+
+        
+
+            
+                    <a class="item" href="https://www.bilibili.com/read/cv5392884?from=search" target="_blank" style="height: 100%;">
+                        <img src="https://i0.hdslb.com/bfs/article/cb28c9b267130c84698dc230f11a531135b4ce12.gif"  style="width: 100%; height: 100%;" >
+                    </a>
+            
+
+        
+
+
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+
+        </a>
+    </div>
+
+</div>
+
+
       
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/Hana/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/13/April/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
@@ -198,7 +515,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/wfmikasa.github.io/2020/06/12/Hana/" class="post-title-link" itemprop="url">未闻花名</a>
+            <a href="/wfmikasa.github.io/2020/06/13/April/" class="post-title-link" itemprop="url">四月是你的谎言</a>
         </h2>
 
         <div class="post-meta">
@@ -207,22 +524,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-12 21:36:13 / 修改时间：22:59:11" itemprop="dateCreated datePublished" datetime="2020-06-12T21:36:13+08:00">2020-06-12</time>
+              <time title="创建时间：2020-06-13 18:49:57" itemprop="dateCreated datePublished" datetime="2020-06-13T18:49:57+08:00">2020-06-13</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/wfmikasa.github.io/categories/%E5%82%AC%E6%B3%AA/" itemprop="url" rel="index"><span itemprop="name">催泪</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-15 19:30:20" itemprop="dateModified" datetime="2020-06-15T19:30:20+08:00">2020-06-15</time>
+              </span>
 
           
-            <span id="/wfmikasa.github.io/2020/06/12/Hana/" class="post-meta-item leancloud_visitors" data-flag-title="未闻花名" title="阅读次数">
+            <span id="/wfmikasa.github.io/2020/06/13/April/" class="post-meta-item leancloud_visitors" data-flag-title="四月是你的谎言" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -237,8 +551,145 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/wfmikasa.github.io/2020/06/12/Hana/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/12/Hana/" itemprop="commentCount"></span>
+    <a title="valine" href="/wfmikasa.github.io/2020/06/13/April/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/13/April/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
+  <tr>
+    <th>--电视动画《四月是你的谎言》（全22话）改编自日本漫画家新川直司原作的同名漫画。<br/><br/>故事讲述了拥有少见才能的中学男生（钢琴家），和女生（小提琴家）共同努力、成长的青春物语。</td>
+    <th><img src="/wfmikasa.github.io/images/ap1.jpg" class="" title="[UsoJANAI &gt;.&lt;]"></th>
+  </tr>
+  <tr>
+      <th>中文名:      四月是你的谎言</th>
+      <th>首播电视台:       富士电视台</th>
+  </tr>
+  <tr>
+      <th>动画制作:       A-1 Pictures</th>
+      <th>发    行:        ANIPLEX</th>
+  </tr>
+  <tr>
+      <th>角色设计/作画监督:          爱敬由纪子</th>
+      <th>音    乐:         横山克</th>
+  </tr>
+  <tr>
+      <th>导    演:          石黑恭平</th>
+      <th>主要配音:            花江夏树  种田梨沙  佐仓绫音</th>
+  </tr>
+</table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/13/April/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/Hana/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
+      <meta itemprop="name" content="1704070136<br/><h1>吴凡<h1/>">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美しいの声 -. -">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/wfmikasa.github.io/2020/06/14/Hana/" class="post-title-link" itemprop="url">未闻花名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-14 16:25:50" itemprop="dateCreated datePublished" datetime="2020-06-14T16:25:50+08:00">2020-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-12 22:59:11" itemprop="dateModified" datetime="2020-06-12T22:59:11+08:00">2020-06-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wfmikasa.github.io/categories/%E5%82%AC%E6%B3%AA/" itemprop="url" rel="index"><span itemprop="name">催泪</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/wfmikasa.github.io/2020/06/14/Hana/" class="post-meta-item leancloud_visitors" data-flag-title="未闻花名" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/Hana/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/Hana/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -315,7 +766,7 @@
  </table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/wfmikasa.github.io/2020/06/12/Hana/#more" rel="contents">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/Hana/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -339,7 +790,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/08/Aimyon/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/Clannad/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
@@ -353,7 +804,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/wfmikasa.github.io/2020/06/08/Aimyon/" class="post-title-link" itemprop="url">Aimyon~走在路上的solo之光</a>
+            <a href="/wfmikasa.github.io/2020/06/14/Clannad/" class="post-title-link" itemprop="url">Clannad</a>
         </h2>
 
         <div class="post-meta">
@@ -363,7 +814,149 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-08 13:24:53" itemprop="dateCreated datePublished" datetime="2020-06-08T13:24:53+08:00">2020-06-08</time>
+              <time title="创建时间：2020-06-14 16:25:50" itemprop="dateCreated datePublished" datetime="2020-06-14T16:25:50+08:00">2020-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-13 13:01:39" itemprop="dateModified" datetime="2020-06-13T13:01:39+08:00">2020-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wfmikasa.github.io/categories/%E5%82%AC%E6%B3%AA/" itemprop="url" rel="index"><span itemprop="name">催泪</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/wfmikasa.github.io/2020/06/14/Clannad/" class="post-meta-item leancloud_visitors" data-flag-title="Clannad" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/Clannad/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/Clannad/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
+  <tr>
+    <td>--电视动画第2期《CLANNAD～AFTER STORY～》于2008年10月2日开始播放。<br/><br/>电视动画《CLANNAD》是由京都动画根据Key社同名游戏改编的TV版动画作品。动画于2007年10月4日起开始播放，全23话，其中TV未放送的特别篇收录在BD中。动画以游戏原作的古河渚线为主要剧情，期间穿插了学园篇其他女主角的相关剧情。</td>
+    <td><img src="/wfmikasa.github.io/images/c1.jpg" class="" title="[Clannad &gt;.&lt;]"></td>
+  </tr> 
+  <tr>
+    <th>原版名称:       CLANNAD -クラナド-</th>
+    <th>主要配音:        中村悠一，中原麻衣</th>
+  </tr>
+  <tr>
+    <th>动画制作:        京都动画</th>
+    <th>首播电视台:        TBS
+  </tr>
+  <tr>
+      <th>集数:         全11话</th>
+      <th>播放期间:         2011年4月14日－6月23日</th>
+  </tr> 
+  <tr>
+      <th>原作:      Key /Visual Art's</th>
+      <th>导演:       石原立也</th>
+  </tr>
+  <tr>
+      <th>地区:         日本</th>
+      <th>网络播放:       bilibili 优酷 爱奇艺 腾讯视频</th>
+  </tr>
+
+ </table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/Clannad/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/Aimyon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
+      <meta itemprop="name" content="1704070136<br/><h1>吴凡<h1/>">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美しいの声 -. -">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/wfmikasa.github.io/2020/06/14/Aimyon/" class="post-title-link" itemprop="url">Aimyon~走在路上的solo之光</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-14 16:25:50" itemprop="dateCreated datePublished" datetime="2020-06-14T16:25:50+08:00">2020-06-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -387,7 +980,7 @@
             </span>
 
           
-            <span id="/wfmikasa.github.io/2020/06/08/Aimyon/" class="post-meta-item leancloud_visitors" data-flag-title="Aimyon~走在路上的solo之光" title="阅读次数">
+            <span id="/wfmikasa.github.io/2020/06/14/Aimyon/" class="post-meta-item leancloud_visitors" data-flag-title="Aimyon~走在路上的solo之光" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -402,8 +995,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/wfmikasa.github.io/2020/06/08/Aimyon/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/08/Aimyon/" itemprop="commentCount"></span>
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/Aimyon/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/Aimyon/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -452,7 +1045,7 @@
 </table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/wfmikasa.github.io/2020/06/08/Aimyon/#more" rel="contents">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/Aimyon/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -476,7 +1069,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/11/Aimer/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/Aimer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
@@ -490,7 +1083,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/wfmikasa.github.io/2020/06/11/Aimer/" class="post-title-link" itemprop="url">Aimer</a>
+            <a href="/wfmikasa.github.io/2020/06/14/Aimer/" class="post-title-link" itemprop="url">Aimer</a>
         </h2>
 
         <div class="post-meta">
@@ -500,7 +1093,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-11 22:50:55" itemprop="dateCreated datePublished" datetime="2020-06-11T22:50:55+08:00">2020-06-11</time>
+              <time title="创建时间：2020-06-14 16:25:50" itemprop="dateCreated datePublished" datetime="2020-06-14T16:25:50+08:00">2020-06-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -524,7 +1117,7 @@
             </span>
 
           
-            <span id="/wfmikasa.github.io/2020/06/11/Aimer/" class="post-meta-item leancloud_visitors" data-flag-title="Aimer" title="阅读次数">
+            <span id="/wfmikasa.github.io/2020/06/14/Aimer/" class="post-meta-item leancloud_visitors" data-flag-title="Aimer" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -539,8 +1132,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/wfmikasa.github.io/2020/06/11/Aimer/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/11/Aimer/" itemprop="commentCount"></span>
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/Aimer/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/Aimer/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -593,7 +1186,7 @@
  </table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/wfmikasa.github.io/2020/06/11/Aimer/#more" rel="contents">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/Aimer/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -617,7 +1210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/AbeMao/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/AbeMao/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
@@ -631,7 +1224,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/wfmikasa.github.io/2020/06/12/AbeMao/" class="post-title-link" itemprop="url">AbeMao</a>
+            <a href="/wfmikasa.github.io/2020/06/14/AbeMao/" class="post-title-link" itemprop="url">AbeMao</a>
         </h2>
 
         <div class="post-meta">
@@ -640,10 +1233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-12 12:18:24 / 修改时间：21:31:16" itemprop="dateCreated datePublished" datetime="2020-06-12T12:18:24+08:00">2020-06-12</time>
+              <time title="创建时间：2020-06-14 16:25:50" itemprop="dateCreated datePublished" datetime="2020-06-14T16:25:50+08:00">2020-06-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-12 21:31:16" itemprop="dateModified" datetime="2020-06-12T21:31:16+08:00">2020-06-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -655,7 +1254,7 @@
             </span>
 
           
-            <span id="/wfmikasa.github.io/2020/06/12/AbeMao/" class="post-meta-item leancloud_visitors" data-flag-title="AbeMao" title="阅读次数">
+            <span id="/wfmikasa.github.io/2020/06/14/AbeMao/" class="post-meta-item leancloud_visitors" data-flag-title="AbeMao" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -670,8 +1269,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/wfmikasa.github.io/2020/06/12/AbeMao/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/12/AbeMao/" itemprop="commentCount"></span>
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/AbeMao/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/AbeMao/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -720,7 +1319,7 @@
  </table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/wfmikasa.github.io/2020/06/12/AbeMao/#more" rel="contents">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/AbeMao/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -744,7 +1343,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/Clannad/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/Hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
@@ -758,7 +1357,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/wfmikasa.github.io/2020/06/12/Clannad/" class="post-title-link" itemprop="url">Clannad</a>
+            <a href="/wfmikasa.github.io/2020/06/14/Hexo/" class="post-title-link" itemprop="url">Hexo博客搭建之准备工作</a>
         </h2>
 
         <div class="post-meta">
@@ -768,11 +1367,27 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-12 22:54:49" itemprop="dateCreated datePublished" datetime="2020-06-12T22:54:49+08:00">2020-06-12</time>
+              <time title="创建时间：2020-06-14 21:14:32" itemprop="dateCreated datePublished" datetime="2020-06-14T21:14:32+08:00">2020-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-15 19:29:09" itemprop="dateModified" datetime="2020-06-15T19:29:09+08:00">2020-06-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wfmikasa.github.io/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a>
+                </span>
             </span>
 
           
-            <span id="/wfmikasa.github.io/2020/06/12/Clannad/" class="post-meta-item leancloud_visitors" data-flag-title="Clannad" title="阅读次数">
+            <span id="/wfmikasa.github.io/2020/06/14/Hexo/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建之准备工作" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -787,8 +1402,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/wfmikasa.github.io/2020/06/12/Clannad/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/12/Clannad/" itemprop="commentCount"></span>
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/Hexo/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/Hexo/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -798,7 +1413,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -817,7 +1432,135 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
+  <tr>
+    <th>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</th>
+  </tr> 
+  <tr>
+    <th>这里我把个人博客托管在 GitHub Pages 上。GitHub Pages 是一种静态站点托管服务，每个 GitHub 帐户或组织都可以有一个站点。</th>
+  </tr> 
+ </table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/Hexo/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/Hexo1.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
+      <meta itemprop="name" content="1704070136<br/><h1>吴凡<h1/>">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美しいの声 -. -">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
+            <a href="/wfmikasa.github.io/2020/06/15/Hexo1.0/" class="post-title-link" itemprop="url">Hexo博客搭建之安装与使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-15 19:08:00 / 修改时间：19:29:12" itemprop="dateCreated datePublished" datetime="2020-06-15T19:08:00+08:00">2020-06-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wfmikasa.github.io/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/wfmikasa.github.io/2020/06/15/Hexo1.0/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建之安装与使用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/wfmikasa.github.io/2020/06/15/Hexo1.0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/15/Hexo1.0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Hexo-原理简要介绍"><a href="#Hexo-原理简要介绍" class="headerlink" title="Hexo 原理简要介绍"></a>Hexo 原理简要介绍</h1><ul>
+<li>由于 GitHub Pages 存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，那就太繁琐了，毕竟博客的关键是内容，hexo 做的就是将这些 md 文件都放在本地，每次写完文章后框架会批量生成相关页面，然后我们只需要将生成的静态文件提交到 GitHub 即可。</li>
+<li>注意：建议使用 Git Bash 来执行后续的所有命令。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/15/Hexo1.0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -900,20 +1643,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/wfmikasa.github.io/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/wfmikasa.github.io/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/wfmikasa.github.io/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -961,12 +1704,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">5k</span>
+    <span title="站点总字数">12k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5 分钟</span>
+    <span title="站点阅读时长">11 分钟</span>
 </div>
 
         
