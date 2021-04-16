@@ -22,38 +22,28 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/wfmikasa.github.io/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="HEXO 俺是不可能再用了">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建之美化">
-<meta property="og:url" content="http://yoursite.com/2020/06/27/Hexo2.0/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="美しいの声 -. -">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="美しいの声 -. -">
-<meta property="og:description" content="HEXO 俺是不可能再用了">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/wfmikasa.github.io/images/doghead.jpg">
-<meta property="og:image" content="http://yoursite.com/wfmikasa.github.io/images/fa4.jpg">
-<meta property="og:image" content="http://yoursite.com/wfmikasa.github.io/images/doghead.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/leafjame/cdn/img/articles/1/2.gif">
-<meta property="article:published_time" content="2020-06-27T06:59:21.108Z">
-<meta property="article:modified_time" content="2020-08-04T11:28:25.477Z">
 <meta property="article:author" content="&lt;br&#x2F;&gt;&lt;h1&gt;小W&lt;h1&#x2F;&gt;">
-<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/wfmikasa.github.io/images/doghead.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/06/27/Hexo2.0/">
+<link rel="canonical" href="http://yoursite.com/page/3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Hexo博客搭建之美化 | 美しいの声 -. -</title>
+  <title>美しいの声 -. -</title>
   
 
 
@@ -183,10 +173,552 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
 
+<!--轮播图-->
+
+
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+
+.glyphicon-chevron-left:before{
+    content: "《"
+}
+.glyphicon-chevron-right:before{
+    content: "》"
+}
+
+@media (max-width: 767px){
+    .rights{
+        display: none;
+    }
+    .carousel{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .slide{
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+}
+
+.carousel{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -moz-transition: -moz-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+  }
+  .carousel-inner > .item.next,
+  .carousel-inner > .item.active.right {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.prev,
+  .carousel-inner > .item.active.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  .carousel-inner > .item.next.left,
+  .carousel-inner > .item.prev.right,
+  .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+.carousel-inner > .active {
+  left: 0;
+}
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel-inner > .next {
+  left: 100%;
+}
+.carousel-inner > .prev {
+  left: -100%;
+}
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+.carousel-inner > .active.left {
+  left: -100%;
+}
+.carousel-inner > .active.right {
+  left: 100%;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  font-family: serif;
+}
+.carousel-control .icon-prev:before {
+  content: '\2039';
+}
+.carousel-control .icon-next:before {
+  content: '\203a';
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+}
+.carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -10px;
+  }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -10px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+</style>
+<div width="100%" height="320px" style="border: 0px; overflow: hidden; border-radius: 10px;" scrolling="no">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" >
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+        
+        
+
+            <li data-target="#myCarousel" data-slide-to="0"></li>
+            
+
+        
+
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            
+
+        
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner" style="height: 280px; border-radius: 10px; width: 100%;">
+
+        
+         
+
+            
+                <a class="item active" href="https://www.bilibili.com/read/cv9481?from=search" target="_blank" style="height: 100%;">
+                    <img src="https://s1.ax1x.com/2020/06/15/NP3A2V.jpg"   style="width: 100%; height: 100%" >
+                </a>
+                
+                
+
+        
+
+            
+                    <a class="item" href="https://www.bilibili.com/read/cv5392884?from=search" target="_blank" style="height: 100%;">
+                        <img src="https://s1.ax1x.com/2020/06/15/NPGeAJ.gif"  style="width: 100%; height: 100%;" >
+                    </a>
+            
+
+        
+
+
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+
+        </a>
+    </div>
+
+</div>
+
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
+      <meta itemprop="name" content="<br/><h1>小W<h1/>">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美しいの声 -. -">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/wfmikasa.github.io/2020/06/14/Hexo/" class="post-title-link" itemprop="url">MySQL的简单查询</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-14 21:14:32" itemprop="dateCreated datePublished" datetime="2020-06-14T21:14:32+08:00">2020-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-10 17:46:37" itemprop="dateModified" datetime="2020-12-10T17:46:37+08:00">2020-12-10</time>
+              </span>
+
+          
+            <span id="/wfmikasa.github.io/2020/06/14/Hexo/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL的简单查询" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
     
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/wfmikasa.github.io/2020/06/14/Hexo/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/14/Hexo/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h1><table>
+  <tr>
+    <th>IBM-eclipse</th>
+    <th>Oracle做数据库起家</th>
+  </tr> 
+  <tr>
+    <th>Oracle-甲骨文</th>
+    <th>Oracle-mysql ab公司</th>
+  </tr> 
+ </table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/14/Hexo/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/15/Hexo1.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/wfmikasa.github.io/images/A2.jpg">
+      <meta itemprop="name" content="<br/><h1>小W<h1/>">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="美しいの声 -. -">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/wfmikasa.github.io/2020/06/15/Hexo1.0/" class="post-title-link" itemprop="url">Hexo博客搭建之安装与使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-15 19:08:00" itemprop="dateCreated datePublished" datetime="2020-06-15T19:08:00+08:00">2020-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-04 19:28:21" itemprop="dateModified" datetime="2020-08-04T19:28:21+08:00">2020-08-04</time>
+              </span>
+
+          
+            <span id="/wfmikasa.github.io/2020/06/15/Hexo1.0/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo博客搭建之安装与使用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/wfmikasa.github.io/2020/06/15/Hexo1.0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/wfmikasa.github.io/2020/06/15/Hexo1.0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Hexo-原理简要介绍"><a href="#Hexo-原理简要介绍" class="headerlink" title="Hexo 原理简要介绍"></a>Hexo 原理简要介绍</h1><ul>
+<li>由于 GitHub Pages 存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，那就太繁琐了，毕竟博客的关键是内容，hexo 做的就是将这些 md 文件都放在本地，每次写完文章后框架会批量生成相关页面，然后我们只需要将生成的静态文件提交到 GitHub 即可。</li>
+<li>注意：建议使用 Git Bash 来执行后续的所有命令。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/15/Hexo1.0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -202,9 +734,10 @@
       <meta itemprop="name" content="美しいの声 -. -">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Hexo博客搭建之美化
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/wfmikasa.github.io/2020/06/27/Hexo2.0/" class="post-title-link" itemprop="url">Hexo博客搭建之美化</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -269,62 +802,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>HEXO 俺是不可能再用了<img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><img src="/wfmikasa.github.io/images/fa4.jpg" class title="[555 &gt;.&lt;]"></p>
-<a id="more"></a>
-<h1 id="Hexo-主页轮播图"><a href="#Hexo-主页轮播图" class="headerlink" title="Hexo 主页轮播图"></a>Hexo 主页轮播图</h1><ol>
-<li>在/themes/next/layout/_macro/目录下，新建carousel.swig文件：<br><a href="/download/carousel.swig">carousel</a> </li>
-<li>在/themes/next/layout/index.swig中，找到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">block content</span><br></pre></td></tr></table></figure> 
-<br>在其下方引入新建的carousel.swig文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--轮播图--&gt;</span><br><span class="line">include &#39;_macro&#x2F;carousel.swig&#39;</span><br></pre></td></tr></table></figure></li>
-<li>在主题配置文件末尾添加：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#Home carousel map, from means link, img means picture</span><br><span class="line">carousel:</span><br><span class="line">  enable: true</span><br><span class="line">  item: [</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ] </span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<hr>
-<h1 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h1><ol>
-<li>如点击轮播图出现<br><img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><br><br>可在/thees/next/source/js/src/utils.js的wrapImageWithFancyBox方法中增加以下第8行代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> wrapImageWithFancyBox: function () &#123;</span><br><span class="line">    $(&#39;.content img&#39;)</span><br><span class="line">      .not(&#39;[hidden]&#39;)</span><br><span class="line">      .not(&#39;.group-picture img, .post-gallery img&#39;)</span><br><span class="line">      .each(function () &#123;</span><br><span class="line">        var $image &#x3D; $(this);</span><br><span class="line">        &#x2F;*解决fancybox和图片链接冲突*&#x2F;</span><br><span class="line">+       if ($(this).hasClass(&#39;nofancybox&#39;)) return;</span><br><span class="line"></span><br><span class="line">        var imageTitle &#x3D; $image.attr(&#39;title&#39;);</span><br><span class="line">        var $imageWrapLink &#x3D; $image.parent(&#39;a&#39;);</span><br><span class="line"></span><br><span class="line">        if ($imageWrapLink.size() &lt; 1) &#123;</span><br><span class="line">            var imageLink &#x3D; ($image.attr(&#39;data-original&#39;)) ? this.getAttribute(&#39;data-original&#39;) : this.getAttribute(&#39;src&#39;);</span><br><span class="line">          $imageWrapLink &#x3D; $image.wrap(&#39;&lt;a href&#x3D;&quot;&#39; + imageLink + &#39;&quot;&gt;&lt;&#x2F;a&gt;&#39;).parent(&#39;a&#39;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $imageWrapLink.addClass(&#39;fancybox fancybox.image&#39;);</span><br><span class="line">        $imageWrapLink.attr(&#39;rel&#39;, &#39;group&#39;);</span><br><span class="line"></span><br><span class="line">        if (imageTitle) &#123;</span><br><span class="line">          $imageWrapLink.append(&#39;&lt;p class&#x3D;&quot;image-caption&quot;&gt;&#39; + imageTitle + &#39;&lt;&#x2F;p&gt;&#39;);</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;make sure img title tag will show correctly in fancybox</span><br><span class="line">          $imageWrapLink.attr(&#39;title&#39;, imageTitle);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    $(&#39;.fancybox&#39;).fancybox(&#123;</span><br><span class="line">      helpers: &#123;</span><br><span class="line">        overlay: &#123;</span><br><span class="line">          locked: false</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; </span><br></pre></td></tr></table></figure>
-然后，在carousel.swig中，为img标签加上：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class&#x3D;&quot;nofancybox&quot;</span><br></pre></td></tr></table></figure> </li>
-<li>轮播图锚点（被困扰N久）<img src="https://cdn.jsdelivr.net/gh/leafjame/cdn/img/articles/1/2.gif">
-点击轮播图左右导航按钮时，a标签的href会锚点到mycarousel处，引起页面滚动。可将href属性改成data-target，如下：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a class&#x3D;&quot;left carousel-control&quot; data-target&#x3D;&quot;#myCarousel&quot; href&#x3D;&quot;javascript:void(0);&quot; role&#x3D;&quot;button&quot; data-slide&#x3D;&quot;prev&quot;&gt;</span><br></pre></td></tr></table></figure>
-<blockquote><p>此文搬自Leaface的Hexo Next主题美化2.0.</p>
-<footer><strong>Seth Godin</strong><cite><a href="https://www.liaofuzhan.com/posts/2114475547.html" target="_blank" rel="noopener">Leaface's Blog</a></cite></footer></blockquote></li>
-</ol>
-
+          <p>HEXO 俺是不可能再用了<img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><img src="/wfmikasa.github.io/images/fa4.jpg" class title="[555 &gt;.&lt;]"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/wfmikasa.github.io/2020/06/27/Hexo2.0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/wfmikasa.github.io/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/wfmikasa.github.io/2020/06/15/Hexo1.0/" rel="prev" title="Hexo博客搭建之安装与使用">
-      <i class="fa fa-chevron-left"></i> Hexo博客搭建之安装与使用
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
 
 
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/wfmikasa.github.io/page/2/"><</a><a class="page-number" href="/wfmikasa.github.io/">1</a><a class="page-number" href="/wfmikasa.github.io/page/2/">2</a><span class="page-number current">3</span> 
+  </nav>
+
+
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -371,7 +881,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-主页轮播图"><span class="nav-number">1.</span> <span class="nav-text">Hexo 主页轮播图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可能出现的问题"><span class="nav-number">2.</span> <span class="nav-text">可能出现的问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

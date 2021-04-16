@@ -1,385 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo博客搭建之美化</title>
-    <url>/wfmikasa.github.io/2020/07/05/Ubuntu/</url>
-    <content><![CDATA[<h1 id="如何定时启动某个命令"><a href="#如何定时启动某个命令" class="headerlink" title="如何定时启动某个命令"></a>如何定时启动某个命令</h1><h2 id="cron设置定时启动任务"><a href="#cron设置定时启动任务" class="headerlink" title="cron设置定时启动任务"></a>cron设置定时启动任务</h2><ul>
-<li>cron：是个Linux定时执行工具，可以在无需人工干预的情况下运行作业，在Ubuntu server下，cron是默认安装并启动的</li>
-<li>/etc/cron.hourly，目录下的脚本会每个小时让执行一次，在每小时的17分钟时运行</li>
-<li>/etc/cron.daily，目录下的脚本会每天让执行一次，在每天的6点25分时运行</li>
-<li>/etc/cron.weekly，目录下的脚本会每周让执行一次，在每周第七天的6点47分时运行</li>
-<li>/etc/cron.mouthly，目录下的脚本会每月让执行一次，在每月1号的6点52分时运行<a id="more"></a>
-<img src="/wfmikasa.github.io/images/ubun1.PNG" class title="[Aimyon &gt;.&lt;]"></li>
-<li>cron服务的启动与停止<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">启动：sudo &#x2F;etc&#x2F;init.d&#x2F;cron start 关闭：sudo &#x2F;etc&#x2F;init.d&#x2F;cron stop</span><br><span class="line">重启：sudo &#x2F;etc&#x2F;init.d&#x2F;cron restart 重新载入配置：sudo &#x2F;etc&#x2F;init.d&#x2F;cron reload</span><br><span class="line">可以用ps aux | grep cron命令查看cron是否已启动</span><br></pre></td></tr></table></figure> </li>
-<li>cron文件语法<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">语法如下：</span><br><span class="line">Minute Hour Day Month Dayofweek command</span><br><span class="line">分钟 小时 天 月 天每星期 命令</span><br><span class="line">每个字段代表的含义及取值范围如下：</span><br><span class="line">Minute ：分钟（0-59），表示每个小时的第几分钟执行该任务</span><br><span class="line">Hour ： 小时（1-23），表示每天的第几个小时执行该任务</span><br><span class="line">Day ： 日期（1-31），表示每月的第几天执行该任务</span><br><span class="line">Month ： 月份（1-12），表示每年的第几个月执行该任务</span><br><span class="line">“ * ” ，代表所有的取值范围内的数字；</span><br><span class="line">” &#x2F; “， 代表”每”（“*&#x2F;5”，表示每5个单位）；</span><br><span class="line">” – “， 代表从某个数字到某个数字（“1-4”，表示1-4个单位）；</span><br><span class="line">” , “， 分开几个离散的数字；</span><br><span class="line">段 含义 取值范围</span><br><span class="line">第一段 代表分钟 0—59</span><br><span class="line">第二段 代表小时 0—23</span><br><span class="line">第三段 代表日期 1—31</span><br><span class="line">第四段 代表月份 1—12</span><br><span class="line">第五段 代表星期几，0代表星期日 0—6</span><br></pre></td></tr></table></figure>
-示例<img src="/wfmikasa.github.io/images/ubun2.PNG" class title="[Aimyon &gt;.&lt;]"> </li>
-</ul>
-]]></content>
-      <tags>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>四月是你的谎言</title>
-    <url>/wfmikasa.github.io/2020/06/13/April/</url>
-    <content><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
-  <tr>
-    <th>--电视动画《四月是你的谎言》（全22话）改编自日本漫画家新川直司原作的同名漫画。<br><br>故事讲述了拥有少见才能的中学男生（钢琴家），和女生（小提琴家）共同努力、成长的青春物语。
-    </th><th><img src="/wfmikasa.github.io/images/ap1.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-  </tr>
-  <tr>
-      <th>中文名:      四月是你的谎言</th>
-      <th>首播电视台:       富士电视台</th>
-  </tr>
-  <tr>
-      <th>动画制作:       A-1 Pictures</th>
-      <th>发    行:        ANIPLEX</th>
-  </tr>
-  <tr>
-      <th>角色设计/作画监督:          爱敬由纪子</th>
-      <th>音    乐:         横山克</th>
-  </tr>
-  <tr>
-      <th>导    演:          石黑恭平</th>
-      <th>主要配音:            花江夏树  种田梨沙  佐仓绫音</th>
-  </tr>
-</table>
-<a id="more"></a>  
----
-
-<h1 id="剧情简介"><a href="#剧情简介" class="headerlink" title="剧情简介"></a>剧情简介</h1><p>有马公生的母亲一心想把公生培育成举世闻名的钢琴家，而公生也不负母亲的期望，在念小学时就赢得许多钢琴比赛的大奖。11岁的秋天，公生的母亲过世，从此他再也听不见自己弹奏的钢琴声，沮丧的他也只好放弃演奏，但在14岁那年，经由儿时玩伴的介绍，公生认识了小提琴手宫园薰，并被薰的自由奔放吸引，没想到薰竟开口邀请公生在比赛时担任她的伴奏…</p>
-<hr>
-<h1 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h1><h2 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h2><table>
-    <tr>
-        <th>《光るなら》（第1话~第11话）</th>
-        <th>作词、作曲、编曲、歌：Goose house</th>
-    </tr>
-    <tr>
-        <th>《七色シンフォニー》（第12话~第22话)</th>
-        <th>作词、作曲：小幡康裕 & あんにゅ / 编曲：小幡康裕 / 歌：コアラモード.</th>
-    </tr>
-</table>
-
-<hr>
-<h2 id="ED"><a href="#ED" class="headerlink" title="ED"></a>ED</h2><table>
-    <tr>
-        <th>《キラメキ》（第1话~第11话）</th>
-        <th>作词、作曲：桥口洋平 / 编曲：wacci & Ikoman / 歌：wacci</th>
-    </tr>
-    <tr>
-        <th>《オレンジ》（第12话~第21话）</th>
-        <th>作词、作曲：MICHIRU / 编曲：白石纱澄李 / 歌：7!!</th>
-    </tr>
-    <tr>
-        <th>《オレンジ（Acoustic Ver.）》（第22话）</th>
-        <th>作词、作曲：MICHIRU / 编曲：白石纱澄李 / 歌：7!!</th>
-    </tr>
-</table>
-
-<hr>
-<h2 id="OST"><a href="#OST" class="headerlink" title="OST"></a>OST</h2><table>
-    <tr>
-        <th>第14钢琴奏鸣曲《月光》第3乐章（第1话）</th>
-        <th>作曲：贝多芬 / 钢琴演奏：阪田知树</th>
-    </tr> 
-    <tr>
-        <th>练习曲 e小调 作品25-5（第6、7、9、10、15话）</th>
-        <th>作曲：肖邦 / 钢琴演奏：阪田知树</th>
-    </tr>
-    <tr>
-        <th>练习曲 a小调 作品25-11《冬风练习曲》（第6、8、9话）</th>
-        <th>作曲：肖邦 / 钢琴演奏：阪田知树</th>
-    </tr>
-    <tr>
-        <th>练习曲 升c小调 作品10-4（第8话）</th>
-        <th>作曲：肖邦 / 钢琴演奏：阪田知树</th>
-    </tr>  
-</table> 
-
-<hr>
-<h1 id="角色配音"><a href="#角色配音" class="headerlink" title="角色配音"></a>角色配音</h1><table>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/ap13.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-        <th>有马公生<br>性别：男<br>CV：花江夏树/钢琴演奏：阪田知树<br>简介：市立墨谷中学初三学生(14岁)。为了实现妈妈没有完成的梦想“成为世界级的钢琴师”，自小便在母亲严厉的指导下练习着钢琴，并在国内多数的拥有严格评判的比赛中获胜。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/ap14.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-        <th>宫园薰<br>性别：女<br>CV：种田梨沙/小提琴演奏：筱原悠那<br>简介：市立墨谷中学初三学生，小提琴手。与从前总是参加比赛的公生认识后，对公生十分憧憬，对有马公生抱有好感。现患有重病。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/ap15.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-        <th>渡亮太<br>性别：男<br>CV：逢坂良太<br>简介：市立墨谷国中三年级生，公生、椿的青梅竹马，足球社社长。很受女性欢迎。 以足球明星为目标，但是在初中失败了，因此躲在厕所大哭一场。 看似花心但是心里是很明事理的人。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/ap16.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-        <th>泽部椿<br>性别：女<br>CV：佐仓绫音<br>市立墨谷中学初三学生，住在公生家隔壁的青梅竹马，喜欢有马公生。 所属于软式排球部，打球时经常将玻璃打破，有一次偶然在玻璃附近的公生被误会打破玻璃并被要求道歉，对公生来说椿就是一个爱惹麻烦的大姐姐</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/ap17.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-        <th>相座武士<br>性别：男<br>CV：梶裕贵<br>简介：与公生同年代的钢琴手。在幼年的时候见识到了称为“人形节拍器”的有马公生，然后一直以超越他为目标，认为他是一个孤高的钢琴家。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/ap18.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
-        <th>
-井川绘见<br>性别：女<br>CV：早见沙织<br>简介：与公生同年代的钢琴手。五岁时在钢琴演奏会帮朋友加油时被公生的演奏感动，而决定要成为钢琴家。她不是以超越有马公生为目标，而是以否定他为目标，在钢琴比赛中演奏出一首极其华丽的曲子。认为能</th>
-    </tr>
-</table>
-
-<hr>
-<h1 id="没有你的春天就要来了"><a href="#没有你的春天就要来了" class="headerlink" title="没有你的春天就要来了"></a>没有你的春天就要来了</h1>  <iframe src="//player.bilibili.com/player.html?aid=18230150&bvid=BV13W411q7je&cid=29762738&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-]]></content>
-      <tags>
-        <tag>动漫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>未闻花名</title>
-    <url>/wfmikasa.github.io/2020/06/14/Hana/</url>
-    <content><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
-  <tr>
-    <td>--官方的简称为“あの花”(那朵花)，在中国通常又被称为“未闻花名”。<br><br>《我们仍未知道那天所看见的花的名字。》是由日本动画公司A-1 Pictures制作的原创电视动画，于2011年4月14日起在日本富士电视台的“noitaminA”节目播出，全11话。</td>
-    <td><img src="/wfmikasa.github.io/images/hana1.jpg" class title="[Abe &gt;.&lt;]"></td>
-  </tr>
-  <tr>
-    <th>中文名:       我们仍未知道那天所看见的花的名字。</th>
-    <th>音乐:        REMEDIOS</th>
-  </tr>
-  <tr>
-    <th>原版名称:       あの日見た花の名前を僕達はまだ知らない。</th>
-    <th>主要配音:        入野自由，茅野爱衣，户松遥，樱井孝宏，早见沙织，近藤孝行</th>
-  </tr>
-  <tr>
-    <th>动画制作:        A-1 Pictures</th>
-    <th>首播电视台:        富士电视台
-  </th></tr>
-  <tr>
-      <th>集数:         全11话</th>
-      <th>播放期间:         2011年4月14日－6月23日</th>
-  </tr>
-  <tr>
-      <th>地区:         日本</th>
-      <th>网络播放:       bilibili（中国大陆独播)</th>
-  </tr>
-  <tr>
-      <th>原作:      超平和Busters</th>
-      <th>出品:          《那朵花》制作委员会</th>
-  </tr>
-  <tr>
-      <th>导演:       长井龙雪</th>
-      <th>发行:          ANIPLEX</th>
-  </tr>
-  <tr>
-      <th>编剧:         冈田麿里</th>
-      <th>发行时间:        2011年6月29日－11月23日（全6卷)</th>
-  </tr>
-  <tr>
-      <th>角色设计:       田中将贺</th>
-      <th>代理发行:         群英社（中国台湾）</th>
-  </tr>
-  <tr>
-      <th>作画监督:        田中将贺</th>
-      <th>状态:            已完结</th>
-  </tr>
- </table>
-
-<a id="more"></a>
-<hr>
-<h1 id="故事简介"><a href="#故事简介" class="headerlink" title="故事简介"></a>故事简介</h1><ul>
-<li>《我们仍未知道那天所看见的花的名字。》是一部用直达内心的笔触描写青春期的少男少女在面对恋情、友情、纠葛时，有欢欣笑容也有伤心泪水的青春原创动画片。</li>
-<li>从小时候起一直青梅竹马的6人，却在升上高中之后彼此有了距离。不太与人们接触的主角宿海仁太、有点被小太妹熏染的安城鸣子、进入重点高中的松雪集与鹤见知利子、放弃读高中而展开旅行的久川铁道、只有幼年死去的本间芽衣子（灵魂，最初只有仁太能看见）还是一如从前。有一天，面码对仁太说：“帮我实现一个愿望吧”。仁太虽然有点为难，却还是答应帮助面码实现愿望。以此为契机，为了实现面码的愿望，分散在各处的大家又再次地聚集在一起。</li>
-</ul>
-<hr>
-<h1 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色<br></h1><p> 主要角色的6人是童年时的好友，以“为了守护世上所有的和平”为目的而组成了“超平和Busters在面码发生意外后解散。山里的废弃小屋是6人的秘密基地，“超平和Busters”平时的大多数活动都以此秘密基地展开。</p>
-<table>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/hana2.jpg" class title="[hana &gt;.&lt;]"></th>
-        <th>宿海仁太（やどみ じんた，Yadomi Jinta)<br>
-            昵称：仁太/仁碳（じんたん)<br>
-            声：入野自由/田村睦心（幼年）；演：村上虹郎<br><br>
-            本作的男主角，在孩童时创立“超平和Busters”，昔日曾经是6人的中心。因为面码和母亲的去世，没能考上重点高中，变的不愿与人接触并拒绝上学。是一开始唯一能看见面码的人。喜欢面码，最大的愿望是能向面码道歉。面码给其的道别信上说对仁太的喜欢是想做仁太新娘子的喜欢。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/hana3.jpg" class title="[hana &gt;.&lt;]"></th>
-        <th>本间芽衣子（ほんま めいこ，Honma Meiko）<br>
-            昵称：面码/面麻/芽间（めんま）<br>
-            声：茅野爱衣；演：滨边美波<br><br>
-            本作的女主角。皮肤白皙，身材娇小的少女。性格天真，超平和Busters中的吉祥物。有着独特的说话方式。虽然有点少根筋，但有些事情还是明白的。5年前因为意外身亡，5年后却突然以长大后的姿态出现在幼时玩伴宿海仁太的面前，希望仁太帮忙完成自己的心愿。知道自己已经死了。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/hana4.jpg" class title="[hana &gt;.&lt;]"></th>
-        <th>安城鸣子（あんじょう なるこ，Anjyou Naruko）<br>
-            昵称：安鸣(あなる)<br>
-            声：户松遥；演：松井爱莉<br><br>
-            表面上是时髦的女高中生，有些傲娇。仁太的同班同学，小时候一直模仿面码，非常羡慕面码的直长发，讨厌自己的卷发和眼镜。看容易害羞。从小的时候就喜欢仁太。最喜欢的人是面码，最讨厌的人也是面码。面码成佛后与仁太一起复学。面码给其的道别信上说最喜欢踏实可靠的安鸣</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/hana5.jpg" class title="[hana &gt;.&lt;]"></th>
-        <th>松雪集（まつゆき あつむ，Matsuyuki Atsumu）<br>
-            昵称：雪集（ゆきあつ）<br>
-            声：樱井孝宏/濑户麻沙美（幼年）；演：志尊淳<br><br>
-            长相和成绩都十分好，从年幼的时候就没有操劳过。表面看上去说话恶毒刻薄，其实内心善良。虽然经常挑衅仁太，但是关键时刻却还是惦记着仁太。以优异成绩进入重点高中，与鹤子是同班同学。喜欢面码，小时候各方面都差仁太一点，所以将仁太视为对手。面码给其的道别信上说最喜欢努力向上的雪集。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/hana6.jpg" class title="[hana &gt;.&lt;]"></th>
-        <th>鹤见知利子（つるみ ちりこ，Tsurumi Chiriko）<br>
-            昵称：鹤子（つるこ）<br>
-            声：早见沙织；演：饭丰万理江<br><br>
-            鹤见知利子和松雪集是同班同学，同样是一位优等生。喜欢雪集。喜欢看书，性格沉着冷静，观察敏锐。是典型的现实主义的知识系分子。具有作为成年人的性格，喜好读书。与松雪集入读同一所高中学校，学业成绩为年级第四。对人态度有些冷漠，说话也有些刻薄，但没有恶意，其实内心很善良而且冷静，也有可爱的一面。面码给其的道别信上说最喜欢温柔善良的鹤子。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/hana7.jpg" class title="[hana &gt;.&lt;]"></th>
-        <th>久川铁道（ひさかわ てつどう，Hisakawa Tetsudou）<br>
-            昵称：波波/噗噗（ぽっぽ）<br>
-            声：近藤孝行/丰崎爱生（幼年）；演：高畑裕太<br><br>
-            6人中年纪最小的一个。昔日个头娇小（较弱小），现在是最强壮的男人。虽然外表变化很大，但内心一点没变。没有继续高中学业，而选择成为环游世界的自由人。在日本的时候，以“超平和Busters”的秘密基地为临时住所。在仁太找寻面码中始终支持仁太。当初因为看到面码在自己面前发生意外，而自己却无能为力，一直深深地自责，也因此而放弃高中学业而环游世界。为了实现面码的愿望，非常积极地帮助仁太。面码成佛后，他终于也拿起手中的课本。面码给其的道别信上说最喜欢有趣的波波。</th>
-    </tr>
-</table>
-
-
-<hr>
-<h1 id="动画音乐"><a href="#动画音乐" class="headerlink" title="动画音乐"></a>动画音乐</h1><h2 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h2><table>
-    <tr>
-        <th>《青い栞》(蓝书签)</th>
-    </tr>
-    <tr>
-        <th>歌：Galileo Galilei</th>
-        <th>作词/作曲：尾崎雄贵</th>
-        <th>编曲：Galileo Galilei</th>
-    </tr>
-</table>
-
-<hr>
-<h2 id="ED"><a href="#ED" class="headerlink" title="ED"></a>ED</h2><table>
-    <tr>
-        <th>《Secret Base》</th>
-    </tr>
-    <tr>
-        <th>歌：超平和Busters女生组</th>
-        <th>作词/作曲：町田纪彦</th>
-        <th>编曲：estiabo</th>
-    </tr>
-</table>
- <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=e0532hexo12" allowfullscreen="true"></iframe> 
-]]></content>
-      <tags>
-        <tag>动漫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clannad</title>
-    <url>/wfmikasa.github.io/2020/06/14/Clannad/</url>
-    <content><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
-  <tr>
-    <td>--电视动画第2期《CLANNAD～AFTER STORY～》于2008年10月2日开始播放。<br><br>电视动画《CLANNAD》是由京都动画根据Key社同名游戏改编的TV版动画作品。动画于2007年10月4日起开始播放，全23话，其中TV未放送的特别篇收录在BD中。动画以游戏原作的古河渚线为主要剧情，期间穿插了学园篇其他女主角的相关剧情。</td>
-    <td><img src="/wfmikasa.github.io/images/c1.jpg" class title="[Clannad &gt;.&lt;]"></td>
-  </tr> 
-  <tr>
-    <th>原版名称:       CLANNAD -クラナド-</th>
-    <th>主要配音:        中村悠一，中原麻衣</th>
-  </tr>
-  <tr>
-    <th>动画制作:        京都动画</th>
-    <th>首播电视台:        TBS
-  </th></tr>
-  <tr>
-      <th>集数:         全11话</th>
-      <th>播放期间:         2011年4月14日－6月23日</th>
-  </tr> 
-  <tr>
-      <th>原作:      Key /Visual Art's</th>
-      <th>导演:       石原立也</th>
-  </tr>
-  <tr>
-      <th>地区:         日本</th>
-      <th>网络播放:       bilibili 优酷 爱奇艺 腾讯视频</th>
-  </tr>
-
- </table>
-
-<a id="more"></a>
-<hr>
-<h1 id="剧情简介"><a href="#剧情简介" class="headerlink" title="剧情简介"></a>剧情简介</h1><ul>
-<li>第一季为主角和女主角们之间所发生的事件，第二季After story为主角在中学毕业之后，与渚共同生活的日子，其中还穿插了“幻想世界”，《CLANNAD》就是由这三个要素所组成的故事。</li>
-<li>在某个小镇，主角冈崎朋也因家庭因素成为不良少年，一直与春原阳平为伍，在光坂高校过着潦倒的生活，但希望终有一天能够离开所在的小镇。某一天，他在学校坡道前发现了一个止步不前的女孩，在朋也认识了这个名为“古河渚”的女孩后，他的生活开始有了重大的变化。</li>
-</ul>
-<hr>
-<h1 id="分集剧情-P6"><a href="#分集剧情-P6" class="headerlink" title="分集剧情 P6"></a>分集剧情 P6</h1><table>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/c2.jpg" class title="[Clannad &gt;.&lt;]"></th>
-        <th>第一话 在樱花飞散的坡道<br><br>就读升学高中3年级的冈崎朋也，每天都无精打采地重复着同样的生活。他也无法像其他同学一样享受学校生活，而且老是迟到，也因此让他成为班上的异类。某天，朋也在通往学校的坡道遇见了一名少女。</th>
-        <th><img src="/wfmikasa.github.io/images/c3.jpg" class title="[Clannad &gt;.&lt;]"></th>
-        <th>第二话 最初的一步<br><br>因为不满父亲的态度而奔出家门的朋也，回神后才发现自己已经到了渚的家附近。当朋也望着从渚家中窗户露出的灯光时，突然听到有人在叫他。当他回过头去，居然看到露出安稳表情的渚正对他说着一些难以理解的话。</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/c4.jpg" class title="[Clannad &gt;.&lt;]"></th>
-        <th>第三话 落泪之后再来一次<br><br>　在大雨中等待着朋也的渚，最后病倒了。隔天朋也来到渚的家中看她，虽然秋生和早苗说不需要担心，但朋也仍感到相当自责。在朋也的脑海中，不断想起在滂沱大雨中抱着篮球的渚的模样。</th>
-        <th><img src="/wfmikasa.github.io/images/c5.jpg" class title="[Clannad &gt;.&lt;]"></th>
-        <th>第四话 一起寻找伙伴<br><br>渚和朋也为了重建话剧社而正式展开行动，但是他们在校内张贴的招募社员海报却遭人撕下，渚也被叫去了学生会室。渚的社员招募活动虽然遭到学生会的禁止，一旁的朋也仍继续帮渚打气。当春原看到两人如此努力之后…</th>
-    </tr>
-    <tr>
-        <th><img src="/wfmikasa.github.io/images/c6.jpg" class title="[Clannad &gt;.&lt;]"></th>
-        <th>第五话 有雕刻的风景<br><br>渚和朋也发现风子的姐姐，原来是渚就读一年级时的美术老师。但是风子所说的话却让人觉得很不可思议，与渚所知道的老师妹妹的状况也完全不同。感到疑惑的朋也，决定和渚一起到风子的姐姐‧公子的家里拜访。</th>
-        <th><img src="/wfmikasa.github.io/images/c7.jpg" class title="[Clannad &gt;.&lt;]"></th>
-        <th>第六话 姐姐与妹妹的创立者祭<br><br>风子住进了渚的家里，古河家也因此传出了新的欢笑声。风子在学校依旧到处对学生发放她的雕刻品，看到风子这么努力，渚为了让风子和公子见面，决定邀请公子来参加创立者祭。</th>
-    </tr>
-
-</table>
-
-
-<hr>
-<h1 id="动画制作"><a href="#动画制作" class="headerlink" title="动画制作"></a>动画制作</h1><ul>
-<li>动画制作：京都动画</li>
-<li>原作：Key / Visual Art’s</li>
-<li>导演：石原立也</li>
-<li>系列构成、脚本：志茂文彦</li>
-<li>人物原案：樋上至</li>
-<li>人物设计、总作画监督：池田和美</li>
-</ul>
-<hr>
-<hr>
-<h1 id="动画音乐"><a href="#动画音乐" class="headerlink" title="动画音乐"></a>动画音乐</h1><h2 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h2><table>
-    <tr>
-        <th>《メグメル ～cuckool mix 2007～》<br>(欢乐岛)</th>
-        <th><img src="/wfmikasa.github.io/images/c13.jpg" class title="[Clannad &gt;.&lt;]"></th>
-    </tr>
-    <tr>
-        <th>歌：Riya</th>
-        <th>作词/作曲：：Riya&eufonius<br>编曲：菊地创</th>
-    </tr>
-</table>
-
-<hr>
-<h2 id="ED"><a href="#ED" class="headerlink" title="ED"></a>ED</h2><table>
-    <tr>
-        <th>《だんご大家族》<br>（团子大家族）</th>
-        <th><img src="/wfmikasa.github.io/images/c11.jpg" class title="[Clannad &gt;.&lt;]"></th>
-    </tr>
-    <tr>
-        <th>歌：茶太</th>
-        <th>作词/作曲：麻枝准<br>编曲：たくまる</th>
-    </tr>
-</table>
-
-<hr>
-<h2 id="Disk"><a href="#Disk" class="headerlink" title="Disk"></a>Disk</h2><table>
-    <tr>
-        <th>《潮鸣り》</th>
-        <th><img src="/wfmikasa.github.io/images/c12.jpg" class title="[Clannad &gt;.&lt;]"></th>
-    </tr>
-    <tr>
-        <th>歌: Key Sounds Label</th>
-        <th>编曲:  折戸伸治</th>
-    </tr>
-</table>
-
-<h2 id="团子大家族-ver-Piano"><a href="#团子大家族-ver-Piano" class="headerlink" title="团子大家族(ver-Piano)"></a>团子大家族(ver-Piano)</h2>   <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=i0707v49h9t" allowfullscreen="true"></iframe> 
-]]></content>
-      <tags>
-        <tag>动漫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Aimyon~走在路上的solo之光</title>
     <url>/wfmikasa.github.io/2020/06/14/Aimyon/</url>
     <content><![CDATA[<h1 id="生平"><a href="#生平" class="headerlink" title="生平"></a>生平</h1><table>
@@ -840,43 +461,376 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客搭建之美化</title>
-    <url>/wfmikasa.github.io/2020/06/27/Hexo2.0/</url>
-    <content><![CDATA[<p>HEXO 俺是不可能再用了<img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><img src="/wfmikasa.github.io/images/fa4.jpg" class title="[555 &gt;.&lt;]"></p>
-<a id="more"></a>
-<h1 id="Hexo-主页轮播图"><a href="#Hexo-主页轮播图" class="headerlink" title="Hexo 主页轮播图"></a>Hexo 主页轮播图</h1><ol>
-<li>在/themes/next/layout/_macro/目录下，新建carousel.swig文件：<br><a href="/download/carousel.swig">carousel</a> </li>
-<li>在/themes/next/layout/index.swig中，找到<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block content</span><br></pre></td></tr></table></figure> 
-<br>在其下方引入新建的carousel.swig文件：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--轮播图--&gt;</span><br><span class="line">include &#39;_macro&#x2F;carousel.swig&#39;</span><br></pre></td></tr></table></figure></li>
-<li>在主题配置文件末尾添加：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Home carousel map, from means link, img means picture</span><br><span class="line">carousel:</span><br><span class="line">  enable: true</span><br><span class="line">  item: [</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ] </span><br></pre></td></tr></table></figure>
+    <title>四月是你的谎言</title>
+    <url>/wfmikasa.github.io/2020/06/13/April/</url>
+    <content><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
+  <tr>
+    <th>--电视动画《四月是你的谎言》（全22话）改编自日本漫画家新川直司原作的同名漫画。<br><br>故事讲述了拥有少见才能的中学男生（钢琴家），和女生（小提琴家）共同努力、成长的青春物语。
+    </th><th><img src="/wfmikasa.github.io/images/ap1.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+  </tr>
+  <tr>
+      <th>中文名:      四月是你的谎言</th>
+      <th>首播电视台:       富士电视台</th>
+  </tr>
+  <tr>
+      <th>动画制作:       A-1 Pictures</th>
+      <th>发    行:        ANIPLEX</th>
+  </tr>
+  <tr>
+      <th>角色设计/作画监督:          爱敬由纪子</th>
+      <th>音    乐:         横山克</th>
+  </tr>
+  <tr>
+      <th>导    演:          石黑恭平</th>
+      <th>主要配音:            花江夏树  种田梨沙  佐仓绫音</th>
+  </tr>
+</table>
+<a id="more"></a>  
+---
 
-
-</li>
-</ol>
+<h1 id="剧情简介"><a href="#剧情简介" class="headerlink" title="剧情简介"></a>剧情简介</h1><p>有马公生的母亲一心想把公生培育成举世闻名的钢琴家，而公生也不负母亲的期望，在念小学时就赢得许多钢琴比赛的大奖。11岁的秋天，公生的母亲过世，从此他再也听不见自己弹奏的钢琴声，沮丧的他也只好放弃演奏，但在14岁那年，经由儿时玩伴的介绍，公生认识了小提琴手宫园薰，并被薰的自由奔放吸引，没想到薰竟开口邀请公生在比赛时担任她的伴奏…</p>
 <hr>
-<h1 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h1><ol>
-<li>如点击轮播图出现<br><img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><br><br>可在/thees/next/source/js/src/utils.js的wrapImageWithFancyBox方法中增加以下第8行代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> wrapImageWithFancyBox: function () &#123;</span><br><span class="line">    $(&#39;.content img&#39;)</span><br><span class="line">      .not(&#39;[hidden]&#39;)</span><br><span class="line">      .not(&#39;.group-picture img, .post-gallery img&#39;)</span><br><span class="line">      .each(function () &#123;</span><br><span class="line">        var $image &#x3D; $(this);</span><br><span class="line">        &#x2F;*解决fancybox和图片链接冲突*&#x2F;</span><br><span class="line">+       if ($(this).hasClass(&#39;nofancybox&#39;)) return;</span><br><span class="line"></span><br><span class="line">        var imageTitle &#x3D; $image.attr(&#39;title&#39;);</span><br><span class="line">        var $imageWrapLink &#x3D; $image.parent(&#39;a&#39;);</span><br><span class="line"></span><br><span class="line">        if ($imageWrapLink.size() &lt; 1) &#123;</span><br><span class="line">            var imageLink &#x3D; ($image.attr(&#39;data-original&#39;)) ? this.getAttribute(&#39;data-original&#39;) : this.getAttribute(&#39;src&#39;);</span><br><span class="line">          $imageWrapLink &#x3D; $image.wrap(&#39;&lt;a href&#x3D;&quot;&#39; + imageLink + &#39;&quot;&gt;&lt;&#x2F;a&gt;&#39;).parent(&#39;a&#39;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $imageWrapLink.addClass(&#39;fancybox fancybox.image&#39;);</span><br><span class="line">        $imageWrapLink.attr(&#39;rel&#39;, &#39;group&#39;);</span><br><span class="line"></span><br><span class="line">        if (imageTitle) &#123;</span><br><span class="line">          $imageWrapLink.append(&#39;&lt;p class&#x3D;&quot;image-caption&quot;&gt;&#39; + imageTitle + &#39;&lt;&#x2F;p&gt;&#39;);</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;make sure img title tag will show correctly in fancybox</span><br><span class="line">          $imageWrapLink.attr(&#39;title&#39;, imageTitle);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    $(&#39;.fancybox&#39;).fancybox(&#123;</span><br><span class="line">      helpers: &#123;</span><br><span class="line">        overlay: &#123;</span><br><span class="line">          locked: false</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; </span><br></pre></td></tr></table></figure>
-然后，在carousel.swig中，为img标签加上：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class&#x3D;&quot;nofancybox&quot;</span><br></pre></td></tr></table></figure> </li>
-<li>轮播图锚点（被困扰N久）<img src="https://cdn.jsdelivr.net/gh/leafjame/cdn/img/articles/1/2.gif">
-点击轮播图左右导航按钮时，a标签的href会锚点到mycarousel处，引起页面滚动。可将href属性改成data-target，如下：
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a class&#x3D;&quot;left carousel-control&quot; data-target&#x3D;&quot;#myCarousel&quot; href&#x3D;&quot;javascript:void(0);&quot; role&#x3D;&quot;button&quot; data-slide&#x3D;&quot;prev&quot;&gt;</span><br></pre></td></tr></table></figure>
-<blockquote><p>此文搬自Leaface的Hexo Next主题美化2.0.</p>
-<footer><strong>Seth Godin</strong><cite><a href="https://www.liaofuzhan.com/posts/2114475547.html" target="_blank" rel="noopener">Leaface's Blog</a></cite></footer></blockquote></li>
-</ol>
+<h1 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h1><h2 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h2><table>
+    <tr>
+        <th>《光るなら》（第1话~第11话）</th>
+        <th>作词、作曲、编曲、歌：Goose house</th>
+    </tr>
+    <tr>
+        <th>《七色シンフォニー》（第12话~第22话)</th>
+        <th>作词、作曲：小幡康裕 & あんにゅ / 编曲：小幡康裕 / 歌：コアラモード.</th>
+    </tr>
+</table>
+
+<hr>
+<h2 id="ED"><a href="#ED" class="headerlink" title="ED"></a>ED</h2><table>
+    <tr>
+        <th>《キラメキ》（第1话~第11话）</th>
+        <th>作词、作曲：桥口洋平 / 编曲：wacci & Ikoman / 歌：wacci</th>
+    </tr>
+    <tr>
+        <th>《オレンジ》（第12话~第21话）</th>
+        <th>作词、作曲：MICHIRU / 编曲：白石纱澄李 / 歌：7!!</th>
+    </tr>
+    <tr>
+        <th>《オレンジ（Acoustic Ver.）》（第22话）</th>
+        <th>作词、作曲：MICHIRU / 编曲：白石纱澄李 / 歌：7!!</th>
+    </tr>
+</table>
+
+<hr>
+<h2 id="OST"><a href="#OST" class="headerlink" title="OST"></a>OST</h2><table>
+    <tr>
+        <th>第14钢琴奏鸣曲《月光》第3乐章（第1话）</th>
+        <th>作曲：贝多芬 / 钢琴演奏：阪田知树</th>
+    </tr> 
+    <tr>
+        <th>练习曲 e小调 作品25-5（第6、7、9、10、15话）</th>
+        <th>作曲：肖邦 / 钢琴演奏：阪田知树</th>
+    </tr>
+    <tr>
+        <th>练习曲 a小调 作品25-11《冬风练习曲》（第6、8、9话）</th>
+        <th>作曲：肖邦 / 钢琴演奏：阪田知树</th>
+    </tr>
+    <tr>
+        <th>练习曲 升c小调 作品10-4（第8话）</th>
+        <th>作曲：肖邦 / 钢琴演奏：阪田知树</th>
+    </tr>  
+</table> 
+
+<hr>
+<h1 id="角色配音"><a href="#角色配音" class="headerlink" title="角色配音"></a>角色配音</h1><table>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/ap13.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+        <th>有马公生<br>性别：男<br>CV：花江夏树/钢琴演奏：阪田知树<br>简介：市立墨谷中学初三学生(14岁)。为了实现妈妈没有完成的梦想“成为世界级的钢琴师”，自小便在母亲严厉的指导下练习着钢琴，并在国内多数的拥有严格评判的比赛中获胜。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/ap14.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+        <th>宫园薰<br>性别：女<br>CV：种田梨沙/小提琴演奏：筱原悠那<br>简介：市立墨谷中学初三学生，小提琴手。与从前总是参加比赛的公生认识后，对公生十分憧憬，对有马公生抱有好感。现患有重病。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/ap15.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+        <th>渡亮太<br>性别：男<br>CV：逢坂良太<br>简介：市立墨谷国中三年级生，公生、椿的青梅竹马，足球社社长。很受女性欢迎。 以足球明星为目标，但是在初中失败了，因此躲在厕所大哭一场。 看似花心但是心里是很明事理的人。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/ap16.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+        <th>泽部椿<br>性别：女<br>CV：佐仓绫音<br>市立墨谷中学初三学生，住在公生家隔壁的青梅竹马，喜欢有马公生。 所属于软式排球部，打球时经常将玻璃打破，有一次偶然在玻璃附近的公生被误会打破玻璃并被要求道歉，对公生来说椿就是一个爱惹麻烦的大姐姐</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/ap17.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+        <th>相座武士<br>性别：男<br>CV：梶裕贵<br>简介：与公生同年代的钢琴手。在幼年的时候见识到了称为“人形节拍器”的有马公生，然后一直以超越他为目标，认为他是一个孤高的钢琴家。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/ap18.jpg" class title="[UsoJANAI &gt;.&lt;]"></th>
+        <th>
+井川绘见<br>性别：女<br>CV：早见沙织<br>简介：与公生同年代的钢琴手。五岁时在钢琴演奏会帮朋友加油时被公生的演奏感动，而决定要成为钢琴家。她不是以超越有马公生为目标，而是以否定他为目标，在钢琴比赛中演奏出一首极其华丽的曲子。认为能</th>
+    </tr>
+</table>
+
+<hr>
+<h1 id="没有你的春天就要来了"><a href="#没有你的春天就要来了" class="headerlink" title="没有你的春天就要来了"></a>没有你的春天就要来了</h1>  <iframe src="//player.bilibili.com/player.html?aid=18230150&bvid=BV13W411q7je&cid=29762738&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ]]></content>
       <tags>
-        <tag>学习</tag>
+        <tag>动漫</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客搭建之准备工作</title>
-    <url>/wfmikasa.github.io/2020/06/14/Hexo/</url>
+    <title>Clannad</title>
+    <url>/wfmikasa.github.io/2020/06/14/Clannad/</url>
     <content><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
   <tr>
-    <th>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</th>
+    <td>--电视动画第2期《CLANNAD～AFTER STORY～》于2008年10月2日开始播放。<br><br>电视动画《CLANNAD》是由京都动画根据Key社同名游戏改编的TV版动画作品。动画于2007年10月4日起开始播放，全23话，其中TV未放送的特别篇收录在BD中。动画以游戏原作的古河渚线为主要剧情，期间穿插了学园篇其他女主角的相关剧情。</td>
+    <td><img src="/wfmikasa.github.io/images/c1.jpg" class title="[Clannad &gt;.&lt;]"></td>
   </tr> 
   <tr>
-    <th>这里我把个人博客托管在 GitHub Pages 上。GitHub Pages 是一种静态站点托管服务，每个 GitHub 帐户或组织都可以有一个站点。</th>
+    <th>原版名称:       CLANNAD -クラナド-</th>
+    <th>主要配音:        中村悠一，中原麻衣</th>
+  </tr>
+  <tr>
+    <th>动画制作:        京都动画</th>
+    <th>首播电视台:        TBS
+  </th></tr>
+  <tr>
+      <th>集数:         全11话</th>
+      <th>播放期间:         2011年4月14日－6月23日</th>
+  </tr> 
+  <tr>
+      <th>原作:      Key /Visual Art's</th>
+      <th>导演:       石原立也</th>
+  </tr>
+  <tr>
+      <th>地区:         日本</th>
+      <th>网络播放:       bilibili 优酷 爱奇艺 腾讯视频</th>
+  </tr>
+
+ </table>
+
+<a id="more"></a>
+<hr>
+<h1 id="剧情简介"><a href="#剧情简介" class="headerlink" title="剧情简介"></a>剧情简介</h1><ul>
+<li>第一季为主角和女主角们之间所发生的事件，第二季After story为主角在中学毕业之后，与渚共同生活的日子，其中还穿插了“幻想世界”，《CLANNAD》就是由这三个要素所组成的故事。</li>
+<li>在某个小镇，主角冈崎朋也因家庭因素成为不良少年，一直与春原阳平为伍，在光坂高校过着潦倒的生活，但希望终有一天能够离开所在的小镇。某一天，他在学校坡道前发现了一个止步不前的女孩，在朋也认识了这个名为“古河渚”的女孩后，他的生活开始有了重大的变化。</li>
+</ul>
+<hr>
+<h1 id="分集剧情-P6"><a href="#分集剧情-P6" class="headerlink" title="分集剧情 P6"></a>分集剧情 P6</h1><table>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/c2.jpg" class title="[Clannad &gt;.&lt;]"></th>
+        <th>第一话 在樱花飞散的坡道<br><br>就读升学高中3年级的冈崎朋也，每天都无精打采地重复着同样的生活。他也无法像其他同学一样享受学校生活，而且老是迟到，也因此让他成为班上的异类。某天，朋也在通往学校的坡道遇见了一名少女。</th>
+        <th><img src="/wfmikasa.github.io/images/c3.jpg" class title="[Clannad &gt;.&lt;]"></th>
+        <th>第二话 最初的一步<br><br>因为不满父亲的态度而奔出家门的朋也，回神后才发现自己已经到了渚的家附近。当朋也望着从渚家中窗户露出的灯光时，突然听到有人在叫他。当他回过头去，居然看到露出安稳表情的渚正对他说着一些难以理解的话。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/c4.jpg" class title="[Clannad &gt;.&lt;]"></th>
+        <th>第三话 落泪之后再来一次<br><br>　在大雨中等待着朋也的渚，最后病倒了。隔天朋也来到渚的家中看她，虽然秋生和早苗说不需要担心，但朋也仍感到相当自责。在朋也的脑海中，不断想起在滂沱大雨中抱着篮球的渚的模样。</th>
+        <th><img src="/wfmikasa.github.io/images/c5.jpg" class title="[Clannad &gt;.&lt;]"></th>
+        <th>第四话 一起寻找伙伴<br><br>渚和朋也为了重建话剧社而正式展开行动，但是他们在校内张贴的招募社员海报却遭人撕下，渚也被叫去了学生会室。渚的社员招募活动虽然遭到学生会的禁止，一旁的朋也仍继续帮渚打气。当春原看到两人如此努力之后…</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/c6.jpg" class title="[Clannad &gt;.&lt;]"></th>
+        <th>第五话 有雕刻的风景<br><br>渚和朋也发现风子的姐姐，原来是渚就读一年级时的美术老师。但是风子所说的话却让人觉得很不可思议，与渚所知道的老师妹妹的状况也完全不同。感到疑惑的朋也，决定和渚一起到风子的姐姐‧公子的家里拜访。</th>
+        <th><img src="/wfmikasa.github.io/images/c7.jpg" class title="[Clannad &gt;.&lt;]"></th>
+        <th>第六话 姐姐与妹妹的创立者祭<br><br>风子住进了渚的家里，古河家也因此传出了新的欢笑声。风子在学校依旧到处对学生发放她的雕刻品，看到风子这么努力，渚为了让风子和公子见面，决定邀请公子来参加创立者祭。</th>
+    </tr>
+
+</table>
+
+
+<hr>
+<h1 id="动画制作"><a href="#动画制作" class="headerlink" title="动画制作"></a>动画制作</h1><ul>
+<li>动画制作：京都动画</li>
+<li>原作：Key / Visual Art’s</li>
+<li>导演：石原立也</li>
+<li>系列构成、脚本：志茂文彦</li>
+<li>人物原案：樋上至</li>
+<li>人物设计、总作画监督：池田和美</li>
+</ul>
+<hr>
+<hr>
+<h1 id="动画音乐"><a href="#动画音乐" class="headerlink" title="动画音乐"></a>动画音乐</h1><h2 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h2><table>
+    <tr>
+        <th>《メグメル ～cuckool mix 2007～》<br>(欢乐岛)</th>
+        <th><img src="/wfmikasa.github.io/images/c13.jpg" class title="[Clannad &gt;.&lt;]"></th>
+    </tr>
+    <tr>
+        <th>歌：Riya</th>
+        <th>作词/作曲：：Riya&eufonius<br>编曲：菊地创</th>
+    </tr>
+</table>
+
+<hr>
+<h2 id="ED"><a href="#ED" class="headerlink" title="ED"></a>ED</h2><table>
+    <tr>
+        <th>《だんご大家族》<br>（团子大家族）</th>
+        <th><img src="/wfmikasa.github.io/images/c11.jpg" class title="[Clannad &gt;.&lt;]"></th>
+    </tr>
+    <tr>
+        <th>歌：茶太</th>
+        <th>作词/作曲：麻枝准<br>编曲：たくまる</th>
+    </tr>
+</table>
+
+<hr>
+<h2 id="Disk"><a href="#Disk" class="headerlink" title="Disk"></a>Disk</h2><table>
+    <tr>
+        <th>《潮鸣り》</th>
+        <th><img src="/wfmikasa.github.io/images/c12.jpg" class title="[Clannad &gt;.&lt;]"></th>
+    </tr>
+    <tr>
+        <th>歌: Key Sounds Label</th>
+        <th>编曲:  折戸伸治</th>
+    </tr>
+</table>
+
+<h2 id="团子大家族-ver-Piano"><a href="#团子大家族-ver-Piano" class="headerlink" title="团子大家族(ver-Piano)"></a>团子大家族(ver-Piano)</h2>   <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=i0707v49h9t" allowfullscreen="true"></iframe> 
+]]></content>
+      <tags>
+        <tag>动漫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>未闻花名</title>
+    <url>/wfmikasa.github.io/2020/06/14/Hana/</url>
+    <content><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><table>
+  <tr>
+    <td>--官方的简称为“あの花”(那朵花)，在中国通常又被称为“未闻花名”。<br><br>《我们仍未知道那天所看见的花的名字。》是由日本动画公司A-1 Pictures制作的原创电视动画，于2011年4月14日起在日本富士电视台的“noitaminA”节目播出，全11话。</td>
+    <td><img src="/wfmikasa.github.io/images/hana1.jpg" class title="[Abe &gt;.&lt;]"></td>
+  </tr>
+  <tr>
+    <th>中文名:       我们仍未知道那天所看见的花的名字。</th>
+    <th>音乐:        REMEDIOS</th>
+  </tr>
+  <tr>
+    <th>原版名称:       あの日見た花の名前を僕達はまだ知らない。</th>
+    <th>主要配音:        入野自由，茅野爱衣，户松遥，樱井孝宏，早见沙织，近藤孝行</th>
+  </tr>
+  <tr>
+    <th>动画制作:        A-1 Pictures</th>
+    <th>首播电视台:        富士电视台
+  </th></tr>
+  <tr>
+      <th>集数:         全11话</th>
+      <th>播放期间:         2011年4月14日－6月23日</th>
+  </tr>
+  <tr>
+      <th>地区:         日本</th>
+      <th>网络播放:       bilibili（中国大陆独播)</th>
+  </tr>
+  <tr>
+      <th>原作:      超平和Busters</th>
+      <th>出品:          《那朵花》制作委员会</th>
+  </tr>
+  <tr>
+      <th>导演:       长井龙雪</th>
+      <th>发行:          ANIPLEX</th>
+  </tr>
+  <tr>
+      <th>编剧:         冈田麿里</th>
+      <th>发行时间:        2011年6月29日－11月23日（全6卷)</th>
+  </tr>
+  <tr>
+      <th>角色设计:       田中将贺</th>
+      <th>代理发行:         群英社（中国台湾）</th>
+  </tr>
+  <tr>
+      <th>作画监督:        田中将贺</th>
+      <th>状态:            已完结</th>
+  </tr>
+ </table>
+
+<a id="more"></a>
+<hr>
+<h1 id="故事简介"><a href="#故事简介" class="headerlink" title="故事简介"></a>故事简介</h1><ul>
+<li>《我们仍未知道那天所看见的花的名字。》是一部用直达内心的笔触描写青春期的少男少女在面对恋情、友情、纠葛时，有欢欣笑容也有伤心泪水的青春原创动画片。</li>
+<li>从小时候起一直青梅竹马的6人，却在升上高中之后彼此有了距离。不太与人们接触的主角宿海仁太、有点被小太妹熏染的安城鸣子、进入重点高中的松雪集与鹤见知利子、放弃读高中而展开旅行的久川铁道、只有幼年死去的本间芽衣子（灵魂，最初只有仁太能看见）还是一如从前。有一天，面码对仁太说：“帮我实现一个愿望吧”。仁太虽然有点为难，却还是答应帮助面码实现愿望。以此为契机，为了实现面码的愿望，分散在各处的大家又再次地聚集在一起。</li>
+</ul>
+<hr>
+<h1 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色<br></h1><p> 主要角色的6人是童年时的好友，以“为了守护世上所有的和平”为目的而组成了“超平和Busters在面码发生意外后解散。山里的废弃小屋是6人的秘密基地，“超平和Busters”平时的大多数活动都以此秘密基地展开。</p>
+<table>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/hana2.jpg" class title="[hana &gt;.&lt;]"></th>
+        <th>宿海仁太（やどみ じんた，Yadomi Jinta)<br>
+            昵称：仁太/仁碳（じんたん)<br>
+            声：入野自由/田村睦心（幼年）；演：村上虹郎<br><br>
+            本作的男主角，在孩童时创立“超平和Busters”，昔日曾经是6人的中心。因为面码和母亲的去世，没能考上重点高中，变的不愿与人接触并拒绝上学。是一开始唯一能看见面码的人。喜欢面码，最大的愿望是能向面码道歉。面码给其的道别信上说对仁太的喜欢是想做仁太新娘子的喜欢。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/hana3.jpg" class title="[hana &gt;.&lt;]"></th>
+        <th>本间芽衣子（ほんま めいこ，Honma Meiko）<br>
+            昵称：面码/面麻/芽间（めんま）<br>
+            声：茅野爱衣；演：滨边美波<br><br>
+            本作的女主角。皮肤白皙，身材娇小的少女。性格天真，超平和Busters中的吉祥物。有着独特的说话方式。虽然有点少根筋，但有些事情还是明白的。5年前因为意外身亡，5年后却突然以长大后的姿态出现在幼时玩伴宿海仁太的面前，希望仁太帮忙完成自己的心愿。知道自己已经死了。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/hana4.jpg" class title="[hana &gt;.&lt;]"></th>
+        <th>安城鸣子（あんじょう なるこ，Anjyou Naruko）<br>
+            昵称：安鸣(あなる)<br>
+            声：户松遥；演：松井爱莉<br><br>
+            表面上是时髦的女高中生，有些傲娇。仁太的同班同学，小时候一直模仿面码，非常羡慕面码的直长发，讨厌自己的卷发和眼镜。看容易害羞。从小的时候就喜欢仁太。最喜欢的人是面码，最讨厌的人也是面码。面码成佛后与仁太一起复学。面码给其的道别信上说最喜欢踏实可靠的安鸣</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/hana5.jpg" class title="[hana &gt;.&lt;]"></th>
+        <th>松雪集（まつゆき あつむ，Matsuyuki Atsumu）<br>
+            昵称：雪集（ゆきあつ）<br>
+            声：樱井孝宏/濑户麻沙美（幼年）；演：志尊淳<br><br>
+            长相和成绩都十分好，从年幼的时候就没有操劳过。表面看上去说话恶毒刻薄，其实内心善良。虽然经常挑衅仁太，但是关键时刻却还是惦记着仁太。以优异成绩进入重点高中，与鹤子是同班同学。喜欢面码，小时候各方面都差仁太一点，所以将仁太视为对手。面码给其的道别信上说最喜欢努力向上的雪集。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/hana6.jpg" class title="[hana &gt;.&lt;]"></th>
+        <th>鹤见知利子（つるみ ちりこ，Tsurumi Chiriko）<br>
+            昵称：鹤子（つるこ）<br>
+            声：早见沙织；演：饭丰万理江<br><br>
+            鹤见知利子和松雪集是同班同学，同样是一位优等生。喜欢雪集。喜欢看书，性格沉着冷静，观察敏锐。是典型的现实主义的知识系分子。具有作为成年人的性格，喜好读书。与松雪集入读同一所高中学校，学业成绩为年级第四。对人态度有些冷漠，说话也有些刻薄，但没有恶意，其实内心很善良而且冷静，也有可爱的一面。面码给其的道别信上说最喜欢温柔善良的鹤子。</th>
+    </tr>
+    <tr>
+        <th><img src="/wfmikasa.github.io/images/hana7.jpg" class title="[hana &gt;.&lt;]"></th>
+        <th>久川铁道（ひさかわ てつどう，Hisakawa Tetsudou）<br>
+            昵称：波波/噗噗（ぽっぽ）<br>
+            声：近藤孝行/丰崎爱生（幼年）；演：高畑裕太<br><br>
+            6人中年纪最小的一个。昔日个头娇小（较弱小），现在是最强壮的男人。虽然外表变化很大，但内心一点没变。没有继续高中学业，而选择成为环游世界的自由人。在日本的时候，以“超平和Busters”的秘密基地为临时住所。在仁太找寻面码中始终支持仁太。当初因为看到面码在自己面前发生意外，而自己却无能为力，一直深深地自责，也因此而放弃高中学业而环游世界。为了实现面码的愿望，非常积极地帮助仁太。面码成佛后，他终于也拿起手中的课本。面码给其的道别信上说最喜欢有趣的波波。</th>
+    </tr>
+</table>
+
+
+<hr>
+<h1 id="动画音乐"><a href="#动画音乐" class="headerlink" title="动画音乐"></a>动画音乐</h1><h2 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h2><table>
+    <tr>
+        <th>《青い栞》(蓝书签)</th>
+    </tr>
+    <tr>
+        <th>歌：Galileo Galilei</th>
+        <th>作词/作曲：尾崎雄贵</th>
+        <th>编曲：Galileo Galilei</th>
+    </tr>
+</table>
+
+<hr>
+<h2 id="ED"><a href="#ED" class="headerlink" title="ED"></a>ED</h2><table>
+    <tr>
+        <th>《Secret Base》</th>
+    </tr>
+    <tr>
+        <th>歌：超平和Busters女生组</th>
+        <th>作词/作曲：町田纪彦</th>
+        <th>编曲：estiabo</th>
+    </tr>
+</table>
+ <iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=e0532hexo12" allowfullscreen="true"></iframe> 
+]]></content>
+      <tags>
+        <tag>动漫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL的简单查询</title>
+    <url>/wfmikasa.github.io/2020/06/14/Hexo/</url>
+    <content><![CDATA[<h1 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h1><table>
+  <tr>
+    <th>IBM-eclipse</th>
+    <th>Oracle做数据库起家</th>
+  </tr> 
+  <tr>
+    <th>Oracle-甲骨文</th>
+    <th>Oracle-mysql ab公司</th>
   </tr> 
  </table>
 
@@ -960,6 +914,35 @@
 <h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2></li>
 <li>我们可以在 hexo 根目录下执行命令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &#39;my-first-blog&#39;</span><br></pre></td></tr></table></figure>hexo 会帮我们在_posts 下生成相关 md 文件，我们只需要打开这个文件就可以开始写博客了，用这个命令的好处是帮我们自动生成了文章创建时间。</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建之美化</title>
+    <url>/wfmikasa.github.io/2020/06/27/Hexo2.0/</url>
+    <content><![CDATA[<p>HEXO 俺是不可能再用了<img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><img src="/wfmikasa.github.io/images/fa4.jpg" class title="[555 &gt;.&lt;]"></p>
+<a id="more"></a>
+<h1 id="Hexo-主页轮播图"><a href="#Hexo-主页轮播图" class="headerlink" title="Hexo 主页轮播图"></a>Hexo 主页轮播图</h1><ol>
+<li>在/themes/next/layout/_macro/目录下，新建carousel.swig文件：<br><a href="/download/carousel.swig">carousel</a> </li>
+<li>在/themes/next/layout/index.swig中，找到<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block content</span><br></pre></td></tr></table></figure> 
+<br>在其下方引入新建的carousel.swig文件：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--轮播图--&gt;</span><br><span class="line">include &#39;_macro&#x2F;carousel.swig&#39;</span><br></pre></td></tr></table></figure></li>
+<li>在主题配置文件末尾添加：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Home carousel map, from means link, img means picture</span><br><span class="line">carousel:</span><br><span class="line">  enable: true</span><br><span class="line">  item: [</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ] </span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<hr>
+<h1 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h1><ol>
+<li>如点击轮播图出现<br><img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><br><br>可在/thees/next/source/js/src/utils.js的wrapImageWithFancyBox方法中增加以下第8行代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> wrapImageWithFancyBox: function () &#123;</span><br><span class="line">    $(&#39;.content img&#39;)</span><br><span class="line">      .not(&#39;[hidden]&#39;)</span><br><span class="line">      .not(&#39;.group-picture img, .post-gallery img&#39;)</span><br><span class="line">      .each(function () &#123;</span><br><span class="line">        var $image &#x3D; $(this);</span><br><span class="line">        &#x2F;*解决fancybox和图片链接冲突*&#x2F;</span><br><span class="line">+       if ($(this).hasClass(&#39;nofancybox&#39;)) return;</span><br><span class="line"></span><br><span class="line">        var imageTitle &#x3D; $image.attr(&#39;title&#39;);</span><br><span class="line">        var $imageWrapLink &#x3D; $image.parent(&#39;a&#39;);</span><br><span class="line"></span><br><span class="line">        if ($imageWrapLink.size() &lt; 1) &#123;</span><br><span class="line">            var imageLink &#x3D; ($image.attr(&#39;data-original&#39;)) ? this.getAttribute(&#39;data-original&#39;) : this.getAttribute(&#39;src&#39;);</span><br><span class="line">          $imageWrapLink &#x3D; $image.wrap(&#39;&lt;a href&#x3D;&quot;&#39; + imageLink + &#39;&quot;&gt;&lt;&#x2F;a&gt;&#39;).parent(&#39;a&#39;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $imageWrapLink.addClass(&#39;fancybox fancybox.image&#39;);</span><br><span class="line">        $imageWrapLink.attr(&#39;rel&#39;, &#39;group&#39;);</span><br><span class="line"></span><br><span class="line">        if (imageTitle) &#123;</span><br><span class="line">          $imageWrapLink.append(&#39;&lt;p class&#x3D;&quot;image-caption&quot;&gt;&#39; + imageTitle + &#39;&lt;&#x2F;p&gt;&#39;);</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;make sure img title tag will show correctly in fancybox</span><br><span class="line">          $imageWrapLink.attr(&#39;title&#39;, imageTitle);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    $(&#39;.fancybox&#39;).fancybox(&#123;</span><br><span class="line">      helpers: &#123;</span><br><span class="line">        overlay: &#123;</span><br><span class="line">          locked: false</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; </span><br></pre></td></tr></table></figure>
+然后，在carousel.swig中，为img标签加上：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class&#x3D;&quot;nofancybox&quot;</span><br></pre></td></tr></table></figure> </li>
+<li>轮播图锚点（被困扰N久）<img src="https://cdn.jsdelivr.net/gh/leafjame/cdn/img/articles/1/2.gif">
+点击轮播图左右导航按钮时，a标签的href会锚点到mycarousel处，引起页面滚动。可将href属性改成data-target，如下：
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a class&#x3D;&quot;left carousel-control&quot; data-target&#x3D;&quot;#myCarousel&quot; href&#x3D;&quot;javascript:void(0);&quot; role&#x3D;&quot;button&quot; data-slide&#x3D;&quot;prev&quot;&gt;</span><br></pre></td></tr></table></figure>
+<blockquote><p>此文搬自Leaface的Hexo Next主题美化2.0.</p>
+<footer><strong>Seth Godin</strong><cite><a href="https://www.liaofuzhan.com/posts/2114475547.html" target="_blank" rel="noopener">Leaface's Blog</a></cite></footer></blockquote></li>
+</ol>
 ]]></content>
       <tags>
         <tag>学习</tag>
