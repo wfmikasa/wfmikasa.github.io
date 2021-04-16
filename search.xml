@@ -920,32 +920,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客搭建之美化</title>
+    <title>留念IN万达交行</title>
     <url>/wfmikasa.github.io/2020/06/27/Hexo2.0/</url>
-    <content><![CDATA[<p>HEXO 俺是不可能再用了<img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><img src="/wfmikasa.github.io/images/fa4.jpg" class title="[555 &gt;.&lt;]"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\wfmikasa.github.io\assets\css\APlayer.min.css"><script src="\wfmikasa.github.io\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>孙琪走了 史丹也要辞职！！！<img src="/wfmikasa.github.io/images/20210416_121551.jpg" class title="[555 &gt;.&lt;]"></p>
 <a id="more"></a>
-<h1 id="Hexo-主页轮播图"><a href="#Hexo-主页轮播图" class="headerlink" title="Hexo 主页轮播图"></a>Hexo 主页轮播图</h1><ol>
-<li>在/themes/next/layout/_macro/目录下，新建carousel.swig文件：<br><a href="/download/carousel.swig">carousel</a> </li>
-<li>在/themes/next/layout/index.swig中，找到<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block content</span><br></pre></td></tr></table></figure> 
-<br>在其下方引入新建的carousel.swig文件：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!--轮播图--&gt;</span><br><span class="line">include &#39;_macro&#x2F;carousel.swig&#39;</span><br></pre></td></tr></table></figure></li>
-<li>在主题配置文件末尾添加：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Home carousel map, from means link, img means picture</span><br><span class="line">carousel:</span><br><span class="line">  enable: true</span><br><span class="line">  item: [</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &#39;link&#39;: &#39;文章链接地址&#39;,</span><br><span class="line">      &#39;img&#39;: &#39;图片链接地址&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ] </span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<hr>
-<h1 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h1><ol>
-<li>如点击轮播图出现<br><img src="/wfmikasa.github.io/images/doghead.jpg" class title="[555 &gt;.&lt;]"><br><br>可在/thees/next/source/js/src/utils.js的wrapImageWithFancyBox方法中增加以下第8行代码<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> wrapImageWithFancyBox: function () &#123;</span><br><span class="line">    $(&#39;.content img&#39;)</span><br><span class="line">      .not(&#39;[hidden]&#39;)</span><br><span class="line">      .not(&#39;.group-picture img, .post-gallery img&#39;)</span><br><span class="line">      .each(function () &#123;</span><br><span class="line">        var $image &#x3D; $(this);</span><br><span class="line">        &#x2F;*解决fancybox和图片链接冲突*&#x2F;</span><br><span class="line">+       if ($(this).hasClass(&#39;nofancybox&#39;)) return;</span><br><span class="line"></span><br><span class="line">        var imageTitle &#x3D; $image.attr(&#39;title&#39;);</span><br><span class="line">        var $imageWrapLink &#x3D; $image.parent(&#39;a&#39;);</span><br><span class="line"></span><br><span class="line">        if ($imageWrapLink.size() &lt; 1) &#123;</span><br><span class="line">            var imageLink &#x3D; ($image.attr(&#39;data-original&#39;)) ? this.getAttribute(&#39;data-original&#39;) : this.getAttribute(&#39;src&#39;);</span><br><span class="line">          $imageWrapLink &#x3D; $image.wrap(&#39;&lt;a href&#x3D;&quot;&#39; + imageLink + &#39;&quot;&gt;&lt;&#x2F;a&gt;&#39;).parent(&#39;a&#39;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $imageWrapLink.addClass(&#39;fancybox fancybox.image&#39;);</span><br><span class="line">        $imageWrapLink.attr(&#39;rel&#39;, &#39;group&#39;);</span><br><span class="line"></span><br><span class="line">        if (imageTitle) &#123;</span><br><span class="line">          $imageWrapLink.append(&#39;&lt;p class&#x3D;&quot;image-caption&quot;&gt;&#39; + imageTitle + &#39;&lt;&#x2F;p&gt;&#39;);</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;make sure img title tag will show correctly in fancybox</span><br><span class="line">          $imageWrapLink.attr(&#39;title&#39;, imageTitle);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">    $(&#39;.fancybox&#39;).fancybox(&#123;</span><br><span class="line">      helpers: &#123;</span><br><span class="line">        overlay: &#123;</span><br><span class="line">          locked: false</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; </span><br></pre></td></tr></table></figure>
-然后，在carousel.swig中，为img标签加上：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class&#x3D;&quot;nofancybox&quot;</span><br></pre></td></tr></table></figure> </li>
-<li>轮播图锚点（被困扰N久）<img src="https://cdn.jsdelivr.net/gh/leafjame/cdn/img/articles/1/2.gif">
-点击轮播图左右导航按钮时，a标签的href会锚点到mycarousel处，引起页面滚动。可将href属性改成data-target，如下：
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a class&#x3D;&quot;left carousel-control&quot; data-target&#x3D;&quot;#myCarousel&quot; href&#x3D;&quot;javascript:void(0);&quot; role&#x3D;&quot;button&quot; data-slide&#x3D;&quot;prev&quot;&gt;</span><br></pre></td></tr></table></figure>
-<blockquote><p>此文搬自Leaface的Hexo Next主题美化2.0.</p>
-<footer><strong>Seth Godin</strong><cite><a href="https://www.liaofuzhan.com/posts/2114475547.html" target="_blank" rel="noopener">Leaface's Blog</a></cite></footer></blockquote></li>
-</ol>
+<h1 id="感觉不会再快乐了"><a href="#感觉不会再快乐了" class="headerlink" title="感觉不会再快乐了"></a>感觉不会再快乐了</h1><p>1.<iframe src="//player.bilibili.com/player.html?aid=887598263&bvid=BV1rK4y1K7EM&cid=325027701&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></p>
 ]]></content>
       <tags>
-        <tag>学习</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
 </search>
